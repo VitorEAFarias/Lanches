@@ -14,5 +14,17 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4));    
+    margin-bottom: 60px;
+}
+
+.bg-fundo {
+    background-image: url("../images/Fundo-Lanche.jpg");
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
 }
