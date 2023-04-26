@@ -7,8 +7,7 @@ namespace Lanches.Controllers
     public class HomeController : Controller
     {
         public IActionResult Index()
-        {
-            TempData["Nome"] = "Vitor";
+        {            
             return View();
         }
 

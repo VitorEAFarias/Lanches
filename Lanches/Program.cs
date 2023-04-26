@@ -1,4 +1,5 @@
 using Lanches.Context;
+using Lanches.Models;
 using Lanches.Repositories;
 using Lanches.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +13,15 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddTransient<ILancheRepository, LancheRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+builder.Services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddMemoryCache();
+builder.Services.AddSession();
+
 
 var app = builder.Build();
 
@@ -28,6 +37,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 
