@@ -1,4 +1,5 @@
 ﻿using Lanches.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Lanches.ViewModels
 {

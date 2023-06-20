@@ -5,9 +5,21 @@
         <img src="@Model.ImagemUrl" class="img-responsive" alt="..." width="230" height="230">
         <div class="card-body">
             <hr>
-            <h5 class="card-title">@Model.Nome</h5>
+            <h4>
+                <a asp-controller="Lanche" asp-action="Details" asp-route-LancheId="@Model.LancheId">
+                    @Model.Nome
+                </a>
+            </h4>
             <p class="card-text">@Model.DescricaoCurta</p>
             <h5>@Model.Preco.ToString("c")</h5>
+            <div>
+                <p class="button">
+                    <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra"
+                    asp-action="AdicionarItemNoCarrinhoCompra" asp-route-LancheId="Model.LancheId">
+                        Incluir no Carrinho
+                    </a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
